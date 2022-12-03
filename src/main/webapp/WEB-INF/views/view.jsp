@@ -31,7 +31,6 @@
     <table class="table table-striped table-bordered table-hover">
       <tr><td>Item</td><td>${view.getItem()}</td></tr>
       <tr><td>Writer</td><td>${view.getWriter()}</td></tr>
-      <tr><td>Photo</td><td>${view.getPhoto()}</td></tr>
       <tr>
         <td>Photo</td><td><c:if test="${view.getPhoto() ne ''}"><br />
         <img src="${pageContext.request.contextPath }/upload/${view.getPhoto()}" class="photo"></c:if></td>
