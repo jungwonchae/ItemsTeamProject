@@ -46,7 +46,7 @@
 <body>
 <div class="container">
     <div style="margin-top:20px">
-        <h1>자유게시판</h1>
+        <h1>중고거래</h1>
     </div>
 <%--    <%--%>
 <%--        BoardDAO boardDAO = new BoardDAO();--%>
