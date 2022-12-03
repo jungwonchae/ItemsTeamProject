@@ -2,5 +2,20 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="ds"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://walab.handong.edu/p3_22100725" />
+        <property name="username" value="p3_22100725" />
+        <property name="password" value="VahWahj5ai" />
+    </bean>
 
+    <bean id="jt"
+          class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="ds" />
+    </bean>
+
+    <bean id="boardDAO" class="com.mycompany.myapp.board.BoardDAO">
+        <property name="jdbcTemplate" ref="jt" />
+    </bean>
 </beans>

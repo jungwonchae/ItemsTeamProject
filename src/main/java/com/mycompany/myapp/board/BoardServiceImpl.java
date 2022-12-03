@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class BoardServicelmpl implements BoardService{
+public class BoardServiceImpl implements BoardService{
     @Autowired
     BoardDAO boardDAO;
 

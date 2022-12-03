@@ -5,10 +5,9 @@
   Time: 2:48 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" isELIgnored="false" pageEncoding="UTF-8"%>
 <%@page import="com.mycompany.myapp.board.BoardDAO, com.mycompany.myapp.board.BoardVO,java.util.*"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +39,7 @@
     <script>
         function delete_ok(id){
             var a = confirm("정말로 삭제하겠습니까?");
-            if(a) location.href='deletepost.jsp?id=' + id;
+            if(a) location.href='deleteok/' + id;
         }
     </script>
 </head>
@@ -49,22 +48,22 @@
     <div style="margin-top:20px">
         <h1>자유게시판</h1>
     </div>
-    <%
-        BoardDAO boardDAO = new BoardDAO();
-        List<BoardVO> list = boardDAO.getBoardList();
-        request.setAttribute("list",list);
-    %>
+<%--    <%--%>
+<%--        BoardDAO boardDAO = new BoardDAO();--%>
+<%--        List<BoardVO> list = boardDAO.getBoardList();--%>
+<%--        request.setAttribute("list",list);--%>
+<%--    %>--%>
     <table id="list" width="90%" class="table table-hover">
         <tr>
             <th>Id</th>
             <th>Item</th>
             <th>Writer</th>
-            <th>Photo</th>
             <th>Price</th>
             <th>Content</th>
             <th>Method</th>
-            <th>Regdate</th>
+            <th>Date Written</th>
             <th>Updated At</th>
+            <th>View</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -73,14 +72,13 @@
                 <td>${u.getSeq()}</td>
                 <td>${u.getItem()}</td>
                 <td>${u.getWriter()}</td>
-                <td>${u.getPhoto()}</td>
                 <td>${u.getPrice()}</td>
                 <td>${u.getContent()}</td>
                 <td>${u.getMethod()}</td>
                 <td>${u.getRegdate()}</td>
-                <td>${u.getUpdatedAt()}</td>
-                <td><a href="view.jsp?id=${u.getSeq()}" class="btn btn-success">View</a></td>
-                <td><a href="editform.jsp?id=${u.getSeq()}" class="btn btn-warning">Edit</a></td>
+                <td>${u.getUpdateAt()}</td>
+                <td><a href="view/${u.getSeq()}" class="btn btn-success">View</a></td>
+                <td><a href="editform/${u.getSeq()}" class="btn btn-warning">Edit</a></td>
                 <td><a href="javascript:delete_ok('${u.getSeq()}')" class="btn btn-danger">Delete</a></td>
             </tr>
         </c:forEach>
