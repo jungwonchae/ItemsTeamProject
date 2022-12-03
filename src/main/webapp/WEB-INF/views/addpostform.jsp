@@ -31,7 +31,7 @@
         </table>
 
         <table class="col-md-12">
-            <tr type="submit"><td><a class="btn btn-light" href="posts.jsp">View All Records</a></td><td align="right"><input type="submit" value="Add Post" class="btn btn-primary"/></td></tr>
+            <tr type="submit"><td><a class="btn btn-light" onclick="history.back()">View All Records</a></td><td align="right"><input type="submit" value="Add Post" class="btn btn-primary"/></td></tr>
         </table>
     </form>
 </div>
